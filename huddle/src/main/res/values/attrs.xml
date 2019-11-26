@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Huddle">
+        <attr name="huddle_more_view_visible" format="boolean" />
+        <attr name="huddle_more_view_text" format="boolean" />
+        <attr name="huddle_spacing" format="dimension" />
+        <attr name="huddle_childview" format="reference" />
+        <attr name="huddle_orientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>
