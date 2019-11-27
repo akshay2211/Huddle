@@ -7,8 +7,6 @@ import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.fxn.huddle.Huddle
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -19,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        test.background = Utility.getRoundRect("#1E88E5")
         switchCompat.setOnCheckedChangeListener { compoundButton, b ->
             huddle.apply {
                 orientation = if (b) {
@@ -54,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                 override fun getBindData(view: View, pos: Int) {
                     if (pos == list2.size - 1) {
                         view.findViewById<TextView>(R.id.user_name_text).text = "+30"
-                        return
+                        //return
                     }
                     Log.e("pos", "0> " + pos)
                     var color = when (pos) {
@@ -66,10 +65,12 @@ class MainActivity : AppCompatActivity() {
                         5 -> "1E88E5"
                         else -> "039BE5"
                     }
+                    view.findViewById<ImageView>(R.id.user_name).background =
+                        Utility.getRoundRect("#" + color)
                     //var url = "https://dummyimage.com/100/${color}/fff&text="+list2[pos]
-                    var url = "https://placekitten.com/100/" + (100 + pos)
-                    Glide.with(context).load(url).apply(RequestOptions.circleCropTransform())
-                        .into(view.findViewById<ImageView>(R.id.user_name));
+                    /* var url = "https://placekitten.com/100/" + (100 + pos)
+                     Glide.with(context).load(url).apply(RequestOptions.circleCropTransform())
+                         .into(view.findViewById<ImageView>(R.id.user_name));*/
                 }
             }
         }
